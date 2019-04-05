@@ -6,7 +6,7 @@
       <ProgressBar maxValue=5 />
 
     <router-link to="/summary">summary</router-link><br>
-    <router-link to="/">Home</router-link>
+
   </div>
 </template>
 
