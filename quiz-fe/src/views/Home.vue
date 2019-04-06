@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="quiz">
     <b-container>
       <b-row class="justify-content-md-center">
         <b-col sm="12" md="8">
@@ -8,25 +8,32 @@
             <b-form-group>
               <b-form-input
                 type="text"
-                v-model="userName" 
+                v-model="userName"
+                size="lg"
                 placeholder="Ievadi savu vārdu"
               >
               </b-form-input>
-              <p v-if="userNameError">{{ userNameError }}</p>
+              <p v-if="userNameError" class="error">{{ userNameError }}</p>
             </b-form-group>
             <b-form-group>
-              <b-form-select v-model="selectedQuiz" :options="possibleQuizes">
+              <b-form-select 
+                v-model="selectedQuiz"
+                size="lg"
+                :options="possibleQuizes"
+              >
                 <template slot="first">
                   <option :value="null" disabled>Izvēlies testu</option>
                 </template>
               </b-form-select>
-              <p v-if="quizSelectionError">{{ quizSelectionError }}</p>
+              <p v-if="quizSelectionError" class="error">
+                {{ quizSelectionError }}
+              </p>
             </b-form-group>
           </b-form>
           <b-button
-            type="submit" 
-            variant="outline-success" 
-            size="lg" 
+            type="submit"
+            variant="outline-success"
+            size="lg"
             v-on:click="onSubmit"
             >Sākt
           </b-button>
@@ -85,5 +92,32 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+$white: #fff;
+$background: rgba(0, 0, 0, 0.8);
+
+.quiz {
+  .container {
+    background-color: $background;
+    margin-top: 10%;
+    padding: 3%;
+
+    h1 {
+      color: white;
+      padding-top: 2%;
+      padding-bottom: 3%;
+    }
+    .btn-lg {
+      padding: 0.8rem 3rem;
+      border-radius: 2rem;
+    }
+    .error {
+      color: red;
+      padding-top: 1%;
+    }
+    .form-group {
+      padding: 2%;
+    }
+  }
+}
 </style>
