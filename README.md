@@ -1,17 +1,27 @@
-# quiz-fe
+# Apraksts
 
-## Project setup
+# Arhitektūra
+
+Projekts sastāv no 2 komponentēm:
+
+- Vue.js Frontend projekta
+- Laravel API backenda
+
+# Palaišana
+
+Attiecīgajās takās jāpalaiž sekojošas komandas:
+
+## Frontend (quiz-fe)
+
 ```
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
 ```
 
-### Lints and fixes files
+## Backend (quiz-be)
+
 ```
-npm run lint
+php artisan serve
 ```
 
+Pēc noklusējuma API darbosies uz 8000 porta.
