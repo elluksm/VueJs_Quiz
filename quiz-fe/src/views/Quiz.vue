@@ -77,16 +77,22 @@ export default {
   methods: {
     ...mapActions(["checkAnswer"]),
     onSubmit() {
-      if (this.questionNumber < this.quizQuestions.length) {
-        this.selectedAnswer = "";
-        this.questionNumber++;
-        this.$router.push({
-          name: "quiz",
-          params: { number: this.questionNumber }
-        });
-      } else {
-        this.$router.push({ name: "summary" });
-      }
+      const data = {
+        questionId: this.question.questionId,
+        selectedAnswer: this.selectedAnswer
+      };
+      this.checkAnswer(data).then(() => {
+        if (this.questionNumber < this.quizQuestions.length) {
+          this.selectedAnswer = "";
+          this.questionNumber++;
+          this.$router.push({
+            name: "quiz",
+            params: { number: this.questionNumber }
+          });
+        } else {
+          this.$router.push({ name: "summary" });
+        }
+      });
     }
   }
 };

@@ -72,10 +72,16 @@ export default {
       }
     }
   },
+  created() {
+    this.fetchPossibleQuizes();
+  },
   methods: {
+    ...mapActions(["fetchPossibleQuizes", "fetchQuizQuestions"]),
     onSubmit() {
       if (this.userName && this.selectedQuiz !== "null") {
-        this.$router.push({ name: "quiz", params: { number: 1 } });
+        this.fetchQuizQuestions().then(() => {
+          this.$router.push({ name: "quiz", params: { number: 1 } });
+        });
       }
 
       this.userNameError = null;

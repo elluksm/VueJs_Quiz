@@ -13,6 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('getquizes', 'QuizController@quizes');
+
+Route::get('quiz/{id}', 'QuizController@quiz');
+
+//Šeit vajadzēja būt POST, bet radās problēmas ar laravel CORS middleware, tāpēc šajā uzdevumā atstāts GET. 
+Route::get('checkanswer/{id}/{aid}', 'QuizController@checkanswer');
+
+

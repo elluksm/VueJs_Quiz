@@ -62,6 +62,7 @@ export const actions = {
   async fetchPossibleQuizes({ commit }) {
     const possibleQuizes = await QuizService.fetchPossibleQuizes();
     commit("setPossibleQuizes", possibleQuizes);
+    commit("resetCorrectAnswers");
   },
   async fetchQuizQuestions({ commit, state }) {
     const quizQuestions = await QuizService.fetchQuizQuestions(
@@ -69,11 +70,8 @@ export const actions = {
     );
     commit("setQuizQuestions", quizQuestions);
   },
-  async checkAnswer({ commit }, questionId, selectedAnswer) {
-    const isAnswerCorrect = await QuizService.checkAnswer(
-      questionId,
-      selectedAnswer
-    );
+  async checkAnswer({ commit }, data) {
+    const isAnswerCorrect = await QuizService.checkAnswer(data);
     if (isAnswerCorrect) {
       commit("addCorrectAnswer");
     }
@@ -89,6 +87,9 @@ export const mutations = {
   },
   addCorrectAnswer(state) {
     state.correctAnswers++;
+  },
+  resetCorrectAnswers(state) {
+    state.correctAnswers = 0;
   },
   updateUserName(state, userName) {
     state.userName = userName;
