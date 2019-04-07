@@ -10,48 +10,48 @@ export const state = {
   correctAnswers: 0,
   possibleQuizes: [
     {
-      value: "value1",
-      text: "kjh jfjrj"
+      value: "0",
+      text: "Geographie"
     },
     {
-      value: "value2",
-      text: "2kjh jfjrj"
+      value: "1",
+      text: "Math"
     }
   ],
   quizQuestions: [
     {
-      title: "first question",
+      title: "First question",
       questionId: 1,
       options: [
         {
-          text: "kjh jfjrj",
-          value: "value1"
+          text: "A",
+          value: "1"
         },
         {
-          text: "2kjh jfjrj",
-          value: "value12"
+          text: "B",
+          value: "2"
         },
         {
-          text: "3kjh jfjrj",
-          value: "value13"
+          text: "C",
+          value: "3"
         },
         {
-          text: "4kjh jfjrj",
-          value: "value14"
+          text: "D",
+          value: "4"
         }
       ]
     },
     {
-      title: "second question",
+      title: "Second question",
       questionId: 2,
       options: [
         {
-          text: "kjh jfjrj",
-          value: "value1"
+          text: "yes",
+          value: "1"
         },
         {
-          text: "kjh jfjrj",
-          value: "value2"
+          text: "no",
+          value: "2"
         }
       ]
     }
